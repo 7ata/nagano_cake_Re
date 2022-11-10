@@ -1,0 +1,41 @@
+<div class= "container">
+  <div class= "row">
+    <div class= "col-sm-12 col-md-8 col-lg-7 px-7 px-sm-0 col-auto">
+      <h2>商品新規登録</h2>
+    </div>
+  </div>
+
+  <div class= "row">
+    <div class= "col-sm-12 col-md-8 col-lg-7 px-7 px-sm-0 mx-auto">
+
+    <%= form_with model: @item, local: true,url: admin_items_path do |f| %>
+     <div class="form-group">
+       <%= f.label :name, "商品名", class: "label" %>
+       <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"商品名" %>
+     </div>
+     <div class="form-group">
+       <%= f.label :introduction, "商品説明", class: "label" %>
+       <%= f.text_area :introduction, id:"inputIntroduction", placeholder: "ここに説明文を表示します" %>
+     </div>
+     <div class="form-group">
+       <%= f.label :genre_id,"ジャンル選択", class: "label" %>
+       <%= f.select :genre_id, options_from_collection_for_select(@genres, :id, :name), include_blank: "--選択してください--"%>
+       <%#= f.select :genre_id, [[@genre.name, 1], [@genre.name, 2,]], id:"genre_id",{include_blank: '--選択してください--'} %>
+     </div>
+     <div class="form-group">
+       <%= f.label :price, "税抜き価格", class: "label" %>
+       <%= f.text_field :price, id:"inputPrice", placeholder: "1000" %>
+     </div>
+     <div class="form-group">
+       <%= f.radio_button :is_active, :true %>
+       <%= f.label :is_active, "販売中" %><br />
+       <%= f.radio_button :is_active, :false %>
+       <%= f.label :is_active, "販売停止中" %><br />
+     </div>
+     <%= f.submit "新規登録" , class:'btn btn-sm btn-success' %>
+    <% end %>
+
+    </div>
+ </div>
+
+</div>

@@ -1,0 +1,46 @@
+<div class= "container">
+  <div class = "row">
+    <h2 class="title">
+      注文履歴詳細
+    </h2>
+  </div>
+
+  <div class= "row">
+    <div class= "col-sm-12 col-md-8 col-lg-7 px-7 px-sm-0 mx-auto">
+      <table class= "table">
+        <tr>
+          <th>購入者</th>
+          <td>
+            <%= link_to public_order_path(@order.id) do %>
+            <%= @order.customer.last_name + @order.customer.fast_name %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>注文日</th><br>
+          <td><%= @order.timestamps %></td>
+        </tr>
+        <tr>
+          <th>配送先</th><br>
+          <td>
+            <%= @order.address %><br>
+            <%= @order.name %>
+          </td>
+        </tr>
+        <tr>
+          <th>支払い方法</th><br>
+          <td><%= @order.payment_method %></td>
+        </tr>
+        <tr>
+          <th>注文ステータス</th>
+          <%#= form_with model: @item, local: true do |f| %>
+          <td>
+           <%= @order.status %>
+          </td>
+          <%# end %>
+        </tr>
+      </table>
+      <%= link_to "更新", admin_order_path(@order.id),class: "btn btn-sm btn-success" %>
+    </div>
+  </div>
+</div>
