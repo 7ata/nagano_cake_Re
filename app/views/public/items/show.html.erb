@@ -1,2 +1,33 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<div class= "container">
+  <div class = "row">
+    <h2 class="title">
+      商品詳細
+    </h2>
+  </div>
+
+  <div class= "row">
+   <div class= "col-sm-12 col-md-8 col-lg-7 px-7 px-sm-0 mx-auto">
+      <table class= "table">
+        <tr>
+          <td><%= @item.name %></td>
+        </tr>
+        <tr>
+          <td><%= @item.introduction %></td>
+        </tr>
+        <tr>
+          <td><%= @item.with_tax_price %>(税込)円</td>
+        </tr>
+        <tr>
+          <td>
+          <%= form_with model: @cart_item ,url: {controller: 'cart_items', action: 'create'} do |f| %>
+            <%= f.hidden_field :item_id, :value => @item.id %>
+
+            <%= f.select :amount, *[1..10], include_blank: "--個数選択--"%>
+            <%= f.submit "カートに入れる",class: "btn btn-sm btn-success" %>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

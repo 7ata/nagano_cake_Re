@@ -1,18 +1,18 @@
 require "test_helper"
 
-class Public::AddressControllerTest < ActionDispatch::IntegrationTest
+class Public::AddressesControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get public_address_index_url
+    get public_addresses_index_url
     assert_response :success
   end
 
   test "should get edit" do
-    get public_address_edit_url
+    get public_addresses_edit_url
     assert_response :success
   end
 
   test "should get update" do
-    get public_address_update_url
+    get public_addresses_update_url
     assert_response :success
   end
 end

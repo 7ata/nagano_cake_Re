@@ -8,18 +8,17 @@
     <td><%= genre.name %></td>
     </tr>
     <% end %>
-  
 </table>
 
-<table>
+
+<table class="table_box">
   <% @items.each do |item| %>
   <tr>
-    <th>商品名</th>
-    <td><%= item.name %></td>
+    <th><%= link_to item.name,item_path(item.id) %></th>
   </tr>
   <tr>
-    <th>値段</th>
     <td>¥<%= item.price %></td>
   </tr>
   <% end %>
 </table>
+<%= paginate @items %>

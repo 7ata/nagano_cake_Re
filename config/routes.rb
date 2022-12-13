@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   # URL /customers/sign_in ...
   devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
@@ -12,11 +14,19 @@ Rails.application.routes.draw do
 
   get "/" => "public/homes#top"
   get "about" => "public/homes#about", as: "about"
-  namespace :public do
+  scope module: :public do
     resources :items, only:[:index,:show]
-    resources :orders, only:[:new,:confirm,:complete,:index,:show]
-    resources :cart_items, only:[:index,:update,:create,:destroy,:destroy_all]
-    resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdraw]
+
+    resources :customers, only: [:show, :edit, :update]
+    get "customers/unsubscribe" => "customers#unsubscribe"
+    patch "customers/withdraw" => "customers#withdraw"
+
+    delete "cart_items/destroy_all" => "cart_items#destroy_all"
+    resources :cart_items, only:[:index,:update,:create,:destroy]
+
+    resources :orders, only:[:new,:index,:show,:create]
+    post "confirm" => "orders#confirm"
+    get "complete" => "orders#complete"
     resources :addresses, only: [:index,:edit,:create,:update,:destroy]
   end
 
@@ -29,6 +39,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
   end
+
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
