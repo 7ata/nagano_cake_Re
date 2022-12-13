@@ -7,15 +7,15 @@
 
   <div class= "row">
    <div class= "col-sm-12 col-md-8 col-lg-7 px-7 px-sm-0 mx-auto">
-      <table class= "table">
+      <table class="table table-borderless">
         <tr>
-          <td><%= @item.name %></td>
+          <th><h3><%= @item.name %></h3></th>
         </tr>
         <tr>
           <td><%= @item.introduction %></td>
         </tr>
         <tr>
-          <td><%= @item.with_tax_price %>(税込)円</td>
+          <th>¥<%= @item.with_tax_price %>(税込)</th>
         </tr>
         <tr>
           <td>

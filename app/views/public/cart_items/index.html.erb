@@ -41,14 +41,16 @@
         <% end %>
        </tbody>
       </table>
+      
 
-      <table class ="table table table-bordered">
-       <td>合計金額</td>
-       <td>¥<%= @total %></td>
-      </table>
-      <%= link_to "買い物を続ける", "/", class: "btn btn-sm btn-primary" %>
-      <%#= paginate @cart_items %>
-      <%= link_to "情報入力に進む", new_order_path, class: "btn btn-sm btn-success" %>
+        <table class ="table table table-bordered">
+         <td>合計金額</td>
+         <td>¥<%= @total %></td>
+        </table>
+        <%= link_to "買い物を続ける", "/", class: "btn btn-sm btn-primary" %>
+        <%#= paginate @cart_items %>
+        <%= link_to "情報入力に進む", new_order_path, class: "btn btn-sm btn-success" %>
+     
     </div>
   </div>
 </div>

@@ -1,12 +1,11 @@
 <div class="container px=5 px-sm-0">
   <div class= "row">
-     <div class="col-lg-4">
+    <div class="col-lg-2">
 
-       <table class="table table-hover table-inverse">
+       <table class="table table-bordered border-dark">
          <thead>
           <tr>
             <th>ジャンル検索</th>
-            <th></th>
           </tr>
          </thead>
          <tbody>
@@ -19,41 +18,49 @@
             <% end %>
          </tbody>
         </table>
-       </div>
-       
-     <div class="col-lg-8">
-      <p>ようこそ、ながのCAKEへ！<br>
-        このサイトは、ケーキ販売のECサイトになります。<br>
-        会員でない方も商品の閲覧はできますが、<br>
-        購入には会員登録が必要になります。<br>
-      </p>
+
      </div>
-  </div>
 
-  <div class= "row">
-    <div class="col-lg-8">
-     <h3>新着商品</h3>
-      <table class="table table-hover table-inverse">
-        <thead>
-         <% @items.each do |item| %>
-         <tr>
-          <th>商品名</th>
-          <td>
-            <%= link_to item_path(item.id) do %>
-            <%= item.name %>
-            <% end %>
-           </td>
-         </tr>
-        </thead>
-        <tbody>
-          <tr>
-           <th>税抜き価格</th>
-           <td><%= item.price %></td>
-          </tr>
-         <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
+     <div class="col-lg-10">
+       <div class="row justify-content-md-center">
+         <div class="col col-lg-2">
+         </div>
+         <div class="col-md-auto">
+           <table class="table table-bordered">
+            <td></td>
+            <td>
+              ようこそ、ながのCAKEへ！<br>
+              このサイトは、ケーキ販売のECサイトになります。<br>
+              会員でない方も商品の閲覧はできますが、<br>
+              購入には会員登録が必要になります。
+            </td>
+            <td></td>
+           </table>
+           <div class="col col-lg-2">
+         </div>
+        </div>
+        
+      </div>
 
+       <h3>新着商品</h3>
+        <table class="table table-borderless">
+          <thead>
+           <% @items.each do |item| %>
+           <tr>
+            <td>
+              <%= link_to item_path(item.id) do %>
+              <%= item.name %>
+              <% end %>
+             </td>
+           </tr>
+          </thead>
+          <tbody>
+            <tr>
+             <td><%= item.price %></td>
+            </tr>
+           <% end %>
+          </tbody>
+        </table>
+      </div>
+  </div>
 </div>
