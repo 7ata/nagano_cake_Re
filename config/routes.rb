@@ -17,16 +17,17 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :items, only:[:index,:show]
 
-    resources :customers, only: [:show, :edit, :update]
     get "customers/unsubscribe" => "customers#unsubscribe"
     patch "customers/withdraw" => "customers#withdraw"
+    resources :customers, only: [:show, :edit, :update]
 
     delete "cart_items/destroy_all" => "cart_items#destroy_all"
     resources :cart_items, only:[:index,:update,:create,:destroy]
 
-    resources :orders, only:[:new,:index,:show,:create]
     post "confirm" => "orders#confirm"
     get "complete" => "orders#complete"
+    resources :orders, only:[:new,:index,:show,:create]
+
     resources :addresses, only: [:index,:edit,:create,:update,:destroy]
   end
 
