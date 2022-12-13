@@ -1,2 +1,43 @@
-<h1>Public::Orders#new</h1>
-<p>Find me in app/views/public/orders/new.html.erb</p>
+<h3>注文情報入力</h3>
+<table class="table table-borderless">
+
+<tr>
+  <th>支払い方法</th>
+<tr>
+<tr>
+  <td>選択肢</td>
+</tr>
+<tr>
+  <th>お届け先</th>
+</tr>
+<tr>
+  <td>ご自身の住所</td>
+</tr>
+<tr>
+  <td>登録済み住所から検索</td>
+</tr>
+<tr>
+  <td>新しいお届け先</td>
+</tr>
+<tr>
+  <%#= form_with model: @address do |f| %>
+
+        <!--<div class="field">-->
+          <%#= f.label :"郵便番号" %>
+          <%#= f.text_field :postal_code %>
+        <!--</div>-->
+
+        <!--<div class="field">-->
+          <%#= f.label :"住所" %>
+          <%#= f.text_field :address %>
+        <!--</div>-->
+
+        <!--<div class="field">-->
+          <%#= f.label :"宛名" %>
+          <%#= f.text_field :name %>
+        <!--</div>-->
+
+</tr>
+</table>
+<%= link_to "確認画面へ進む", orders_confirm_path, class: "btn btn-sm btn-primary" %>
+
