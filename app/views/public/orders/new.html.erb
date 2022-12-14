@@ -1,11 +1,17 @@
 <h3>注文情報入力</h3>
-<table class="table table-borderless">
 
 <tr>
   <th>支払い方法</th>
 <tr>
 <tr>
-  <td>選択肢</td>
+  <td>
+    <!--<div class="form-group">-->
+       <%#= f.radio_button :payment_method %>
+       <%#= f.label :payment_method, "クレジットカード" %><br />
+       <%#= f.radio_button :payment_method %>
+       <%#= f.label :payment_method, "銀行振込" %><br />
+     <!--</div>-->
+  </td>
 </tr>
 <tr>
   <th>お届け先</th>
