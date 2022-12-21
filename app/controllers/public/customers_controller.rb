@@ -18,9 +18,17 @@ class Public::CustomersController < ApplicationController
   end
 
   def unsubscribe
+    @customer = current_customer
   end
 
   def withdraw
+    # is_deletedカラムをtrueに変更することにより削除フラグを立てる
+    current_customer.update(is_deleted: true)
+    #ログアウトする
+    reset_session
+    flash[:notice] = "退会処理を実行いたしました"
+    redirect_to root_path
+    
   end
 
   private

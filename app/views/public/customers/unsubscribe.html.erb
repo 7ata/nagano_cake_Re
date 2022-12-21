@@ -1,10 +1,27 @@
 <div class= "container">
-  <div class= "row">
+  <div class= "row justify-content-md-center">
     <div class= "col-sm-12 col-md-8 col-lg-7 px-7 px-sm-0 col-auto">
-      <p><strong>本当に退会しますか？</strong><br>
-      退会すると、会員登録情報や<br>
-      これまでの購入情報が閲覧できなくなります。<br>
-      退会する場合は、「退会する」をクリックしてください。</p>
+      <table>
+        <tr>
+          <th>本当に退会しますか？</th>
+        </tr>
+        <tr>
+          <td>退会すると、会員登録情報や</td>
+        </tr>
+        <tr>
+          <td>これまでの購入情報が閲覧できなくなります。</td>
+        </tr>
+        <tr>
+          <td>退会する場合は、「退会する」をクリックしてください。</td>
+        </tr>
+        <tr>
+          <td><%= link_to "退会しない", customer_path(@customer.id), class: "btn btn-sm btn-primary" %></td>
+          <td><%= link_to "退会する", customers_withdraw_path, class: "btn btn-sm btn-danger" ,method: :patch, data: { confirm: "本当に退会しますか？"} %></td>
+
+        </tr>
+
+      </table>
+
     </div>
   </div>
 </div>

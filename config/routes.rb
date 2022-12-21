@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   sessions: "admin/sessions"
 }
 
-  get "/" => "public/homes#top"
-  get "about" => "public/homes#about", as: "about"
   scope module: :public do
+    root to: 'homes#top'
+    get "about" => "homes#about", as: "about"
     resources :items, only:[:index,:show]
 
     get "customers/unsubscribe" => "customers#unsubscribe"

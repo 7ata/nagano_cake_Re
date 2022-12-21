@@ -8,7 +8,7 @@
         登録情報
         <%= link_to "編集する", edit_customer_path(@customer.id),class: "btn btn-sm btn-success" %>
       </p>
-      <table class= "table">
+      <table class= "table table table-bordered">
         <tr>
           <th>氏名</th>
           <td><%= @customer.last_name + @customer.fast_name %></td>
@@ -36,11 +36,11 @@
       </table>
       <p>
         配送先
-        <%= link_to "一覧を見る", addresses_path,class: "btn btn-sm btn-success" %>
+        <%= link_to "一覧を見る", addresses_path,class: "btn btn-sm btn-primary" %>
       </p>
       <p>
         注文履歴
-        <%= link_to "一覧を見る", orders_path,class: "btn btn-sm btn-success" %>
+        <%= link_to "一覧を見る", orders_path,class: "btn btn-sm btn-primary" %>
       </p>
     </div>
   </div>
