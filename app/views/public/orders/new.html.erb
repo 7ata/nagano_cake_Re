@@ -1,31 +1,35 @@
 <h3>注文情報入力</h3>
 
-<tr>
-  <th>支払い方法</th>
-<tr>
-<tr>
-  <td>
-    <!--<div class="form-group">-->
-       <%#= f.radio_button :payment_method %>
-       <%#= f.label :payment_method, "クレジットカード" %><br />
-       <%#= f.radio_button :payment_method %>
-       <%#= f.label :payment_method, "銀行振込" %><br />
-     <!--</div>-->
-  </td>
-</tr>
-<tr>
-  <th>お届け先</th>
-</tr>
-<tr>
-  <td>ご自身の住所</td>
-</tr>
-<tr>
-  <td>登録済み住所から検索</td>
-</tr>
-<tr>
-  <td>新しいお届け先</td>
-</tr>
-<tr>
+<h4>支払い方法</h4>
+  <%= form_with model: @order, local: true, do |f| %>
+    <div class="form-group">
+      <%= f.radio_button :peyment_method, [0] %>
+      <%= f.label :is_active, "クレジットカード" %>
+      <%= f.radio_button :peyment_method, [1] %>
+      <%= f.label :is_active, "銀行振込" %>
+    </div>
+  <% end %>
+  
+<h4>お届け先</h4>
+  <%= form_with model: @, local: true do |f| %>
+    <div class="form-group">
+      <%= f.radio_button :, [0] %>
+      <%= f.label :, "ご自身の住所" %>
+      
+      <%= f.radio_button :peyment_method, [0] %>
+      <%= f.label :, "登録済み住所から選択" %>
+      
+      <%= f.radio_button :peyment_method, [0] %>
+      <%= f.label :, "新しいお届け先" %>
+    </div>
+   
+
+
+  <% end %>
+  
+登録済み住所から検索
+新しいお届け先
+
   <%#= form_with model: @address do |f| %>
 
         <!--<div class="field">-->
@@ -43,7 +47,6 @@
           <%#= f.text_field :name %>
         <!--</div>-->
 
-</tr>
-</table>
+
 <%= link_to "確認画面へ進む", orders_confirm_path, class: "btn btn-sm btn-primary" %>
 

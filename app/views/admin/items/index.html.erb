@@ -27,7 +27,7 @@
           <td colpan="2"></td>
           <td><%= item.price %></td>
           <td><%= item.genre.name %></td>
-          <td><%= item.is_active %></td>
+          <td><%= item.is_active ? '販売中' : '販売停止中'%></td>
          </tr>
         <% end %>
        </tbody>
