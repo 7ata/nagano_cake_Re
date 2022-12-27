@@ -6,8 +6,27 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
-    @customer = current_customer
+    @order = Order.new(order_params)
     #ここに注文情報入力の部分　条件分岐　まだcreateじゃない
+    @cart_items = current_end_user.cart_items
+		@order.payment = params[:order][:payment]
+		if params[:order][:address_option] == "0"#ご自身の住所選択時
+		  @order.postal_code = current_customer.postal_code
+			@order.address = current_customer.address
+			@order.name = current_customer.fast_name + current_customer.last_name
+		elsif params[:order][:address_option] == "1"#登録済み住所から選択
+		  @address = Address.find(params[:order][:address_id])
+		  #orderの_id(=カラム)でアドレス(帳)を選び、そのデータ送る
+      @order.postal_code = @address.post_code
+      @order.address = @address.address
+      @order.name = @address.name
+    elsif
+
+
+
+
+
+
   end
 
   def complete
