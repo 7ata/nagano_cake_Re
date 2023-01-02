@@ -1,2 +1,49 @@
-<h1>Public::Orders#confirm</h1>
-<p>Find me in app/views/public/orders/confirm.html.erb</p>
+<div class= "container x=5 px-sm-0">
+  <div class = "row">
+    <h3>注文情報確認</h3>
+  </div>
+
+  <div class= "row">
+       <div class="col-lg-10">
+         <table class ="table table table-bordered">
+           <thead class="table-light">
+              <tr>
+                <th>商品名</th>
+                <th colpan="3"></th>
+                <th>単価(税込み)</th>
+                <th>数量</th>
+                <th>小計</th>
+              </tr>
+           </thead>
+           <tbody>
+            <% @cart_items.each do |cart_item| %>
+             <tr>
+              <td><%= cart_item.item.name %></td>
+              <td colpan="3"></td>
+              <td><%= cart_item.item.with_tax_price %></td>
+              <td><%=  cart_item.subtotal %></td>
+              <td><% @total += cart_item.subtotal %></td>
+             </tr>
+             <% end %>
+
+           </tbody>
+       </div>
+
+       <div class="col-lg-2">
+         <table class ="table table table-bordered">
+              <tr>
+                <th>送料</th>
+                <td></td>
+              </tr>
+              <tr>
+                <th>商品合計</th>
+                <td></td>
+              </tr>
+              <tr>
+                <th>請求金額</th>
+                <td></td>
+              </tr>
+         </table>
+       </div>
+  </div>
+</div>
