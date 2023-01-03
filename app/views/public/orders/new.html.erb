@@ -3,9 +3,9 @@
 <h4>支払い方法</h4>
   <%= form_with model: @order, local: true, url: orders_confirm_path do |f| %>
     <div class="form-group">
-      <%= f.radio_button :peyment_method_i18n,0 ,checked: "checked" %>
+      <%= f.radio_button :peyment_method,0 ,checked: "checked" %>
       <%= f.label :peyment_method, "クレジットカード" %>
-      <%= f.radio_button :peyment_method_i18n, 1 %>
+      <%= f.radio_button :peyment_method,1 %>
       <%= f.label :peyment_method, "銀行振込" %>
     </div>
 

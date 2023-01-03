@@ -4,7 +4,7 @@
   </div>
 
   <div class= "row">
-       <div class="col-lg-10">
+       <div class="col-lg-8">
          <table class ="table table table-bordered">
            <thead class="table-light">
               <tr>
@@ -25,25 +25,46 @@
               <td><% @total += cart_item.subtotal %></td>
              </tr>
              <% end %>
-
            </tbody>
+         </table>
        </div>
 
-       <div class="col-lg-2">
+       <div class="col-lg-4">
          <table class ="table table table-bordered">
               <tr>
-                <th>送料</th>
-                <td></td>
+                <th>小計</th>
+                <% @order.shipping_cost = 800 %>
+                <td><%= @order.shipping_cost %></td>
               </tr>
               <tr>
                 <th>商品合計</th>
-                <td></td>
+                <td><%= @total.to_i %></td>
               </tr>
               <tr>
                 <th>請求金額</th>
-                <td></td>
+                <% @order.total_payment = @order.shipping_cost + @total.to_i %>
+                <td><%= @order.total_payment %></td>
               </tr>
          </table>
        </div>
   </div>
+  <div class="row">
+    <table class="table table-borderless">
+      <tr>
+        <th>支払い方法</th>
+        <td><%= @order.payment_method_i18n %></td>
+      </tr>
+      <tr>
+        <th>お届け先</th>
+        <td>
+          <%= @order.postal_code %>
+          <%= @order.address %>
+          <%= @order.name %>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <%= link_to "注文を確定する", orders_complete_path, class: "btn btn-sm btn-success" %>
+
+
 </div>
