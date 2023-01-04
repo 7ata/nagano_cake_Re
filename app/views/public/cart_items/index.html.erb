@@ -31,7 +31,7 @@
             <%= f.submit "編集する", class: "btn btn-sm btn-success" %>
             <% end %>
           </td>
-          <td><%=  cart_item.subtotal %></td>
+          <td><%= cart_item.subtotal %></td>
           <td>
             <%= link_to "削除する", cart_item_path(cart_item.id), class: "btn btn-sm btn-danger",
             method: :delete, data: { confirm: "本当に削除しますか?" } %>
