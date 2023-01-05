@@ -1,51 +1,81 @@
-<h3>注文情報入力</h3>
+<div class= "container x=5 px-sm-0">
+  <div class = "row">
+    <div class = "col-md-5">
+      <h3>注文情報入力</h3>
+    </div>
+  </div>
 
-<h4>支払い方法</h4>
-  <%= form_with model: @order, local: true, url: orders_confirm_path do |f| %>
-    <div class="form-group">
-      <%= f.radio_button :payment_method,"credit_card" ,checked: "checked" %>
-      <%= f.label :payment_method, "クレジットカード" %>
-      <%= f.radio_button :payment_method,"transfer" %>
-      <%= f.label :payment_method, "銀行振込" %>
+    <%= form_with model: @order, local: true, url: orders_confirm_path do |f| %>
+    <div class = "row">
+      <h4>支払い方法</h4>
+    </div>
+    <div class = "row">
+      <div class = "col-md-3">
+        <div class="form-group">
+          <%= f.radio_button :payment_method,"credit_card" ,checked: "checked" %>
+          <%= f.label :payment_method, "クレジットカード" %><br>
+          <%= f.radio_button :payment_method,"transfer" %>
+          <%= f.label :payment_method, "銀行振込" %>
+        </div>
+      </div>
     </div>
 
-
-<h4>お届け先</h4>
-
-    <div class="form-group">
-      <%= f.radio_button :address_option,0,checked: "checked" %> <!--checked:予めbuttn選択される-->
-      <%= f.label :address_option_0, "ご自身の住所" %><br>
-      <%= @customer.postal_code + @customer.address %>
-      <%= @customer.last_name + @customer.fast_name %>
+    <div class = "row">
+      <h4>お届け先</h4><br>
+    </div>
+    <div class= "row">
+      <div class = "col-md-3">
+        <div class="form-group">
+          <%= f.radio_button :address_option,0,checked: "checked" %> <!--checked:予めbuttn選択される-->
+          <%= f.label :address_option_0, "ご自身の住所" %><br>
+          <%= "〒" + @customer.postal_code + @customer.address %><br>
+          <%= @customer.last_name + @customer.fast_name %>
+        </div>
+      </div>
     </div>
 
-    <div class="form-group">
-      <%= f.radio_button :address_option,1 %>
-      <%= f.label :address_option_1, "登録済み住所から選択" %><br>
-      <%= f.collection_select(:customer_id, @addresses, :id, :address) %>
+    <div class = "row">
+      <div class = "col-md-3">
+        <div class="form-group">
+          <%= f.radio_button :address_option,1 %>
+          <%= f.label :address_option_1, "登録済み住所から選択" %><br>
+          <%= f.collection_select(:customer_id, @addresses, :id, :address) %>
+        </div>
+      </div>
     </div>
 
-    <div class="form-group">
-      <%= f.radio_button :address_option,2 %>
-      <%= f.label :address_option_2, "新しいお届け先" %><br>
-      <%= f.label :postal_code, "郵便番号", class: "label" %>
-      <%= f.text_field :postal_code, autofocus: true, id: "inputPostal_code", placeholder: "000-0000" %>
+    <div class = "row">
+      <div class = "col-md-3">
+        <div class="form-group">
+          <%= f.radio_button :address_option,2 %>
+          <%= f.label :address_option_2, "新しいお届け先" %><br>
+          <%= f.label :postal_code, "郵便番号", class: "label" %>
+          <%= f.text_field :postal_code, autofocus: true, id: "inputPostal_code", placeholder: "000-0000" %>
+        </div>
+      </div>
+    </div>
+    <div class = "row">
+      <div class = "col-md-3">
+        <div class="form-group">
+          <%= f.label :address, "住所", class: "label" %>
+          <%= f.text_field :address, id:"inputAddress", placeholder: "東京都文京区小石川０−０" %>
+        </div>
+      </div>
+    </div>
+    <div class = "row">
+      <div class = "col-md-3">
+        <div class="form-group">
+          <%= f.label :name,"宛名", class: "label" %>
+          <%= f.text_field :name, id: "inputName", placeholder: "東京花子" %>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <%= f.submit "確認画面へ進む", class: "btn btn-sm btn-primary" %>
+           <%#= link_to "確認画面へ進む", orders_confirm_path, class: "btn btn-sm btn-primary" %>
     </div>
 
-    <div class="form-group">
-       <%= f.label :address, "住所", class: "label" %>
-       <%= f.text_field :address, id:"inputAddress", placeholder: "東京都文京区小石川０−０" %>
-    </div>
-    <div class="form-group">
-       <%= f.label :name,"宛名", class: "label" %>
-       <%= f.text_field :name, id: "inputName", placeholder: "東京花子" %>
-    </div>
+      <% end %>
 
-       <%= f.submit "確認画面へ進む", class: "btn btn-sm btn-primary" %>
-
-  <% end %>
-
-
-
-<%#= link_to "確認画面へ進む", orders_confirm_path, class: "btn btn-sm btn-primary" %>
+</div>
 

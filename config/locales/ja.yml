@@ -4,3 +4,9 @@ ja: # 日本語の設定を行う
         payment_method: #カラム名（payment_methodカラムに対して）
           credit_card: "クレジットカード" # [enumで番号と紐付けた要素]
           transfer: "銀行振込" #[enumで番号と紐付けた要素]:# 要素の数だけ追加する
+        status:
+          waiting: "入金待ち"
+          paid: "入金確認"
+          production: "製作中"
+          shipping_preparation: "発送準備中"
+          shipped: "発送済み"

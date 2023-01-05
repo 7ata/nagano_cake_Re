@@ -1,12 +1,15 @@
-<div class= "container">
+<div class= "container x=5 px-sm-0">
   <div class = "row">
-    <h2 class="title">ショッピングカート</h2>
+   <div class="col-10">
+    <h3>ショッピングカート</h3>
+   </div>
+   <div class="col-2">
     <%= link_to "カートを空にする", cart_items_destroy_all_path, class: "btn btn-sm btn-danger",
             method: :delete, data: { confirm: "本当に削除しますか?" } %>
+   </div>
   </div>
 
   <div class= "row">
-   <div class= "col-sm-16 col-md-12 col-lg-10 px10 px-sm-0 mx-auto">
    <table class ="table table table-bordered">
        <thead class="table-light">
         <tr>
@@ -41,16 +44,18 @@
         <% end %>
        </tbody>
       </table>
-
-
-        <table class ="table table table-bordered">
+     <div class="col-8">
+       <%= link_to "買い物を続ける",root_path, class: "btn btn-sm btn-primary" %>
+     </div>
+     <div class="col-4">
+      <table class ="table table table-bordered">
          <td>合計金額</td>
          <td>¥<%= @total %></td>
         </table>
-        <%= link_to "買い物を続ける",root_path, class: "btn btn-sm btn-primary" %>
-        <%#= paginate @cart_items %>
-        <%= link_to "情報入力に進む", new_order_path, class: "btn btn-sm btn-success" %>
-
-    </div>
+     </div>
   </div>
+  <div class="row justify-content-md-center">
+   <%= link_to "情報入力に進む", new_order_path, class: "btn btn-sm btn-success" %>
+  </div>
+        <%#= paginate @cart_items %>
 </div>

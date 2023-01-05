@@ -6,15 +6,13 @@ class Public::CartItemsController < ApplicationController
   end
 
   def create
-
-    #@cart_item = CartItem.new(cart_item_params)
     @cart_item = current_customer.cart_items.new(cart_item_params)
         # もし元々カート内に「同じ商品」がある場合、「数量を追加」更新・保存する
     @cart_item.customer_id = current_customer.id
 
     if current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id]).present?
       #元々カート内にあるもの「item_id」
-                          #今追加した　　　　　　　params[:cart_item][:item_id])
+                          #今追加したparams[:cart_item][:item_id])
 
        cart_item = current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
             cart_item.amount += params[:cart_item][:amount].to_i
@@ -59,6 +57,6 @@ class Public::CartItemsController < ApplicationController
 
   private
   def cart_item_params
-      params.require(:cart_item).permit(:item_id, :amount,:customer_id)
+      params.require(:cart_item).permit(:id,:item_id, :amount,:customer_id)
   end
 end

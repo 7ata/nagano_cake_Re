@@ -83,8 +83,8 @@ ActiveRecord::Schema.define(version: 2022_11_09_105211) do
     t.integer "price", null: false
     t.integer "amount", null: false
     t.integer "making_status", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "orders", force: :cascade do |t|
@@ -96,8 +96,8 @@ ActiveRecord::Schema.define(version: 2022_11_09_105211) do
     t.integer "total_payment", null: false
     t.integer "payment_method", null: false
     t.integer "status", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
