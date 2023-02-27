@@ -20,13 +20,9 @@
         </table>
 
      </div>
-
-     <div class="col-lg-10">
-       <div class="row justify-content-md-center">
-         <div class="col col-lg-2">
-         </div>
-         <div class="col-md-auto">
-           <table class="table table-bordered">
+    <div class="col-lg-10">
+      <div class="col-md-auto">
+        <table class="table table-bordered">
             <td></td>
             <td>
               ようこそ、ながのCAKEへ！<br>
@@ -35,15 +31,18 @@
               購入には会員登録が必要になります。
             </td>
             <td></td>
-           </table>
-           <div class="col col-lg-2">
-         </div>
-        </div>
-        
+        </table>
       </div>
+    </div>
+  </div>
 
-        <table class="table table-borderless">
-          <thead>
+  <div class= "row">
+    <div class="col-lg-2"></div>
+
+    <div class="col-lg-10">
+      <h3>新着商品</h3>
+      <table class="table table-borderless">
+        <thead>
            <% @items.each do |item| %>
            <tr>
             <td>
@@ -52,14 +51,14 @@
               <% end %>
              </td>
            </tr>
-          </thead>
-          <tbody>
+        </thead>
+        <tbody>
             <tr>
              <td><%= item.price %></td>
             </tr>
            <% end %>
-          </tbody>
-        </table>
-      </div>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
