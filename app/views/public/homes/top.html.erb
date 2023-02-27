@@ -1,4 +1,4 @@
-<div class="container px=5 px-sm-0">
+<div class="container  px=5 px-sm-0 m-auto">
   <div class= "row">
     <div class="col-lg-2">
 
@@ -20,18 +20,16 @@
         </table>
 
      </div>
-    <div class="col-lg-10">
+    <div class="col-lg-6">
       <div class="col-md-auto">
-        <table class="table table-bordered">
-            <td></td>
-            <td>
-              ようこそ、ながのCAKEへ！<br>
-              このサイトは、ケーキ販売のECサイトになります。<br>
-              会員でない方も商品の閲覧はできますが、<br>
-              購入には会員登録が必要になります。
-            </td>
-            <td></td>
-        </table>
+        <div class="border m-5">
+              <p>
+                ようこそ、ながのCAKEへ！<br>
+                このサイトは、ケーキ販売のECサイトになります。<br>
+                会員でない方も商品の閲覧はできますが、<br>
+                購入には会員登録が必要になります。
+              </p>
+        </div>
       </div>
     </div>
   </div>
@@ -54,11 +52,12 @@
         </thead>
         <tbody>
             <tr>
-             <td><%= item.price %></td>
+             <td>¥<%= item.price %></td>
             </tr>
            <% end %>
         </tbody>
       </table>
+      <%= paginate @items %>
     </div>
   </div>
 </div>
