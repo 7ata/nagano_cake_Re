@@ -8,7 +8,7 @@ class Admin::ItemsController < ApplicationController
     @item = Item.new
     @genres = Genre.all
   end
-  
+
   def create
     @item = Item.new(item_params)
     if @item.save
@@ -18,7 +18,7 @@ class Admin::ItemsController < ApplicationController
       render :index
     end
   end
-  
+
   def update
     @item = Item.find(params[:id])
     @genres = Genre.all
@@ -37,10 +37,10 @@ class Admin::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @genres = Genre.all
   end
-  
+
   private
   def item_params
-    params.require(:item).permit(:id,:genre_id,:name,:introduction,:price,:is_active)
+    params.require(:item).permit(:id,:genre_id,:name,:introduction,:price,:is_active,:image)
   end
-  
+
 end
