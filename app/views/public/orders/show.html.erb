@@ -11,6 +11,31 @@
       <h4>注文情報</h4><br>
       <table class ="table table table-bordered">
           <tr>
+            <th class="table-active">商品合計</th>
+            <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+          </tr>
+          <tr>
+            <th class="table-active">配送料</th>
+            <td>
+              <%= "〒" + @order.postal_code %><br>
+              <%= @order.address %><br>
+              <%= @order.name %>
+            </td>
+          </tr>
+          <tr>
+            <th class="table-active">ご請求金額</th>
+            <td><%= @order.total_payment %></td>
+          </tr>
+          <tr>
+            <th class="table-active">ステータス</th>
+            <td><%= @order.status_i18n%></td>
+          </tr>
+      </table>
+    </div>
+    <div class="col-lg-6">
+      <h4>請求情報</h4><br>
+      <table class ="table table table-bordered">
+        <tr>
             <th class="table-active">注文日</th>
             <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
           </tr>
@@ -25,10 +50,6 @@
           <tr>
             <th class="table-active">支払い方法</th>
             <td><%= @order.payment_method_i18n %></td>
-          </tr>
-          <tr>
-            <th class="table-active">ステータス</th>
-            <td><%= @order.total_payment %></td>
           </tr>
       </table>
     </div>
