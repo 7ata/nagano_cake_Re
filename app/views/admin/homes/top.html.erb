@@ -21,8 +21,8 @@
         <% @orders.each do |order| %>
          <tr>
           <td>
-           <%= link_to public_order_path(order.id) do %>
-           <%= order.created_at %>
+           <%= link_to admin_orders_show_path do %>
+           <%= order.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
            <% end %>
           </td>
 
