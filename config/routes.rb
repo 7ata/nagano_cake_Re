@@ -33,9 +33,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get "/" => 'homes#top'
-    get 'orders/show'
-    get 'status/update'
-    get 'making_status/update'
+    patch 'order_details/update'
+    resources :orders, only: [:show, :update]
     resources :items, only: [:index, :new, :create, :show, :edit, :update, :destroy]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
