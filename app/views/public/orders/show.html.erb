@@ -4,7 +4,6 @@
       <h3>注文履歴詳細</h3>
     </div>
   </div>
-</div>
 
   <div class = "row">
     <div class="col-lg-6">
@@ -54,3 +53,32 @@
       </table>
     </div>
   </div>
+  <div class = "row">
+    <div class="col-lg-8">
+      <h4>請求情報</h4><br>
+      <table class ="table table table-bordered">
+        <thead class="table-active">
+          <tr>
+            <th>商品</th>
+            <th colpan="3"></th>
+            <th>単価(税込み)</th>
+            <th>個数</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <% @order.order_details.each do |order_detail| %>
+        <tbody>
+          <tr>
+            <td><%= order_detail.item.name %></td>
+            <td colpan="3"></td>
+            <td><%= order_detail.price %></td>
+            <td><%= order_detail.amount %></td>
+            <td><%= order_detail.subtotal %></td>
+            </td>
+           </tr>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
