@@ -36,19 +36,19 @@
       <table class ="table table table-bordered">
         <tr>
             <th class="table-active">商品合計</th>
-            <td><%= @order.total_payment %><td>
+            <td><%= @order.total_payment - @order.shipping_cost %><td>
           </tr>
           <tr>
             <th class="table-active">配送料</th>
             <td>
-              <%# @total += @order_details.subtotal %>
-              <%#= @total %><br>
+              <%= @order.shipping_cost %>
             </td>
           </tr>
           <tr>
             <th class="table-active">ご請求額</th>
-            <td><%= @order.total_payment %></td>
-            <!--＋配送料-->
+            <td>
+              <%= @order.total_payment %>
+            </td>
           </tr>
       </table>
     </div>
@@ -66,7 +66,7 @@
             <th>小計</th>
           </tr>
         </thead>
-        <% @order.order_details.each do |order_detail| %>
+        <% @order_details.each do |order_detail| %>
         <tbody>
           <tr>
             <td><%= order_detail.item.name %></td>

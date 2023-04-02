@@ -30,7 +30,9 @@
            <%= order.customer.last_name + order.customer.fast_name %>
           </td>
           <td colpan="2"></td>
-          <td>注文個数</td>
+          <td>
+            <%= order.order_details.sum(:amount) %>
+          </td>
           <td colpan="2"></td>
           <td><%= order.status_i18n %></td>
          </tr>
